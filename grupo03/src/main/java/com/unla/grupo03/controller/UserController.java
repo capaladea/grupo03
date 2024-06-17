@@ -22,8 +22,8 @@ public class UserController {
 	@ModelAttribute
 	private void userDetalles(Model m, Principal p) {
 	
-		System.out.println("aca");
 		if (p != null) {
+			
 			String email = p.getName();
 			User user = userRepo.findByEmail(email);
 			m.addAttribute("user", user);

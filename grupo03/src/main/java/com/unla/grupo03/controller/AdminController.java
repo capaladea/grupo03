@@ -21,12 +21,13 @@ public class AdminController {
 	
 	@ModelAttribute
 	private void userDetalles(Model m, Principal p) {
-		
+		System.out.println("ADMNI controldador");
 		if(p != null) {
-		String email = p.getName();
-		User admin = userRepo.findByEmail(email);
-		m.addAttribute("user", admin);
-	}
+			
+			String email = p.getName();
+			User admin = userRepo.findByEmail(email);
+			m.addAttribute("user", admin);
+		}
 
 	}
 	

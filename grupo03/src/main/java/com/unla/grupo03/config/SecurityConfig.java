@@ -23,16 +23,11 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @EnableMethodSecurity
 public class SecurityConfig {
 	
-	////////////////////////////
-	
 	@Bean
 	CustomSuccessHandler getCustomSuccessHandler() {
 		
 		return new CustomSuccessHandler();
 	}
-	
-
-	///////////////////////////
 
     @Bean
     UserDetailsService getUserDetailsService() {		

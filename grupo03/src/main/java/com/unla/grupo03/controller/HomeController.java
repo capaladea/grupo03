@@ -23,16 +23,12 @@ public class HomeController {
 	}
 	
 	@GetMapping("/signin")
-	public String login() {
-		
-		System.out.println(" intento login");
-		
+	public String login() {		
 		return "login";
 	}
 	
 	@GetMapping("/register")
-	public String register() {
-		
+	public String register() {		
 		return "register";
 	}
 	
@@ -47,9 +43,7 @@ public class HomeController {
 			
 			User userAux = userService.createUser(user);
 			
-			System.out.println(userAux.toString());
-						
-			if(userAux!=null)
+			if(userAux != null)
 				session.setAttribute("msg", "Registro exitoso");
 			else
 				session.setAttribute("msg", "Algo salio mal");	
