@@ -35,7 +35,7 @@ public class User {
 	@Column(name="password", nullable=false, length=60)
 	private String password;	
 
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="user", cascade = {CascadeType.ALL})
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="user", cascade = {CascadeType.ALL})
 	private Set<UserRol> userRoles = new HashSet<>();
 	
 	public User(String nombre, String apellido, String email, String password, Set<UserRol> userRoles) {

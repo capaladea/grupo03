@@ -25,7 +25,7 @@ public class HomeController {
 	@GetMapping("/signin")
 	public String login() {
 		
-		//System.out.println(" intento login");
+		System.out.println(" intento login");
 		
 		return "login";
 	}
