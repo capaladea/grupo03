@@ -53,8 +53,7 @@ public class SecurityConfig {
 				login.loginProcessingUrl("/login");
 				login.usernameParameter("email");
 				login.passwordParameter("password");
-				login.successHandler(getCustomSuccessHandler());
-				//login.defaultSuccessUrl("/user/");							
+				login.successHandler(getCustomSuccessHandler());						
 				})
 			.formLogin( logout -> {
 				logout.permitAll();
