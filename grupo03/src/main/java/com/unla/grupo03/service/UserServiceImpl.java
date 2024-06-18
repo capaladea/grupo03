@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 		
 		user.setPassword(passwordEncoder().encode(user.getPassword()));
 		
-		UserRol rol = new UserRol(user, "ROL_USER");
+		UserRol rol = new UserRol(user, "USER");
 		user.addRol(rol);
 				
 		return userRepo.save(user);

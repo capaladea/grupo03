@@ -21,13 +21,10 @@ public class UserController {
 	
 	@ModelAttribute
 	private void userDetalles(Model m, Principal p) {
-	
-		if (p != null) {
-			
-			String email = p.getName();
-			User user = userRepo.findByEmail(email);
-			m.addAttribute("user", user);
-		}
+
+		String email = p.getName();
+		User user = userRepo.findByEmail(email);
+		m.addAttribute("user", user);
 	}
 
 	@GetMapping("/")

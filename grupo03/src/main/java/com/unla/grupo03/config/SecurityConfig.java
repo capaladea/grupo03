@@ -42,24 +42,25 @@ public class SecurityConfig {
 			.cors(AbstractHttpConfigurer::disable)
 			.authorizeHttpRequests(auth -> {
 				auth.requestMatchers("/**").permitAll();
-				auth.requestMatchers("/user/**").hasRole("ROL_USER");
-				auth.requestMatchers("/admin/**").hasRole("ROL_ADMIN");
+				auth.requestMatchers("/user/**").hasRole("USER");
+				auth.requestMatchers("/admin/**").hasRole("ADMIN");
 				auth.anyRequest().authenticated();
 				}
 			)
 			.formLogin(login -> {
 				login.loginPage("/signin");
+				login.permitAll();
 				login.loginProcessingUrl("/login");
 				login.usernameParameter("email");
 				login.passwordParameter("password");
-				login.defaultSuccessUrl("/user/");				
-				login.successHandler(getCustomSuccessHandler());				
-				login.permitAll();
+				login.successHandler(getCustomSuccessHandler());
+				//login.defaultSuccessUrl("/user/");							
 				})
-			
-			.httpBasic(Customizer.withDefaults());
-
-			
+			.formLogin( logout -> {
+				logout.permitAll();
+			})			
+			.httpBasic(Customizer.withDefaults());		
+		
 		return http.build();
 		}
  

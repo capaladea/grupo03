@@ -15,8 +15,7 @@ public class CustomErrorController implements ErrorController{
 	
 	final Logger LOGGER = LoggerFactory.getLogger(CustomErrorController.class);
 	
-	public String getErrorPath() {
-		
+	public String getErrorPath() {		
 		return "/error";
 	}
 	

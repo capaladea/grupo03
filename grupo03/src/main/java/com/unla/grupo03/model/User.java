@@ -1,6 +1,8 @@
 package com.unla.grupo03.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -77,9 +79,19 @@ public class User {
 	public Set<UserRol> getUserRoles() {
 		return this.userRoles;
 	}
-
-
-
+	
+	//retorna el rol asociado como string
+	public String rolPrincipal() {
+		
+		List<String> roles = new ArrayList<String>();
+		
+		for (UserRol r: this.userRoles) {
+			roles.add(r.getRol());
+		}
+		
+		return roles.get(0);
+	}
+	
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", password="

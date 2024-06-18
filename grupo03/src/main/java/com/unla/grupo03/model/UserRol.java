@@ -19,7 +19,6 @@ import lombok.Setter;
 @Entity
 @Getter @Setter @NoArgsConstructor
 @Table(name="user_rol", uniqueConstraints=@UniqueConstraint(columnNames= {"rol", "user_id"}))
-@Transactional
 public class UserRol {
 	
 	@Id
@@ -30,17 +29,19 @@ public class UserRol {
 	@JoinColumn(name="user_id", nullable=false)
 	private User user;
 
-	@Column(name="role", nullable=false, length=20)
-	private String role;
+	@Column(name="rol", nullable=false, length=20)
+	private String rol;
 	
-	public UserRol(User user, String role) {
+	public UserRol(User user, String rol) {
 		this.user = user;
-		this.role = role;
+		this.rol = rol;
 	}
 
 	@Override
 	public String toString() {
-		return "UserRol [id=" + id + ", role=" + role + "]";
-	}	
+		return "UserRol [id=" + id + ", rol=" + rol + "]";
+	}
+	
+
 
 }
