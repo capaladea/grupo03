@@ -13,12 +13,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+
+import com.unla.grupo03.model.AlertaFaltantes;
 import com.unla.grupo03.model.Productos;
+import com.unla.grupo03.helpers.ViewRouteHelper;
 
 
 import com.unla.grupo03.model.User;
+import com.unla.grupo03.repository.ProductosRepository;
+import com.unla.grupo03.repository.UserRepository;
 import com.unla.grupo03.service.AlertaFaltantesService;
-
+import com.unla.grupo03.service.ProductosService;
 import com.unla.grupo03.service.ProductosServiceImp;
 import com.unla.grupo03.service.UserService;
 
@@ -36,40 +41,33 @@ public class HomeController {
 		return "index";
 	}
 	
-	@GetMapping("/signin")
-	public String login() {		
-		return "login";
+
+	@GetMapping("/singin")
+	public String login(Model model,
+						@RequestParam(name="error",required=false) String error,
+						@RequestParam(name="logout", required=false) String logout) {
+		model.addAttribute("error", error);
+		model.addAttribute("logout", logout);
+		return ViewRouteHelper.USER_LOGIN;
 	}
+
+	@GetMapping("/logout")
+	public String logout(Model model) {
+		return ViewRouteHelper.USER_LOGOUT;
+	}
+
+	@GetMapping("/loginsuccess")
+	public String loginCheck() {
+		return "redirect:/index";
+	}
+	
+	
+	
 	
 	@GetMapping("/register")
 	public String register() {		
 		return "register";
-	}
-
-	
-	@Autowired
-	private ProductosServiceImp service;
-	
-	@ModelAttribute
-	
-	
-	
-	@GetMapping("/productos")
-	
-	private String traerProductos(Model model) {
-
-		List<Productos> productos =service.listar();		
-		
-		model.addAttribute("productos", productos);
-		
-		return "/Productos";
-	}
-	
-	@GetMapping("/productos")
-	public String productos() {		
-		return "productos";
-	}
-	
+	}	
 	
 	
 	@PostMapping("/createUser")
