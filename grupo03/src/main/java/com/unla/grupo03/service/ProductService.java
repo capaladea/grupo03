@@ -8,4 +8,6 @@ public interface ProductService {
 	
 	
 	public List<Product> listar();
+
+	public void delete(int id);
 }

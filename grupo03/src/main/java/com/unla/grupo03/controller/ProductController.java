@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.unla.grupo03.model.Product;
@@ -24,8 +27,19 @@ public class ProductController {
 	private String listarProduct(Model model) {
 
 		List<Product> productos = service.listar();
-		model.addAttribute("productos", productos);
+		model.addAttribute("productos", productos);		
 		
 		return "user/productos";
 	}
+	
+
+	@GetMapping("/eliminar/{id}")
+	public String delete(Model model, @PathVariable ("id") int id) {
+		System.out.println("aca");
+		service.delete(id);
+		
+		return "redirect:/";
+	}
+	
+	
 }

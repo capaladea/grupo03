@@ -28,7 +28,7 @@ public class Stock {
 	private int cantidadCritica;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="idPersona",nullable=false)
+	@JoinColumn(name="idProducto",nullable=false)
 	private Product producto;
 
 	public Stock(int id, int cantidadActual, int cantidadCritica, Product producto) {

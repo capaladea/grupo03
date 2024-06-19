@@ -22,5 +22,13 @@ public class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		return productRepo.findAll();
 	}
+
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		productRepo.deleteById(id);
+		
+	}
 	
 }
