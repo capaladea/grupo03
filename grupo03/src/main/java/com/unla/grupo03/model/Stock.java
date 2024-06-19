@@ -27,7 +27,7 @@ public class Stock {
 	@Column(name = "cantidadCritica")
 	private int cantidadCritica;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="idPersona",nullable=false)
 	private Product producto;
 

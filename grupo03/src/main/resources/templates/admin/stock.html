@@ -20,17 +20,15 @@
 			</tr>
 			</thead>
 			<tbody>
-				<tr th:each=":${}">
-					<td th:text="${}"></td>
-					<td th:text="${}"></td>
-					<td th:text="${}"></td>
-					<td th:text="${}"""></td>
-				
+				<tr th:each="s:${stock}">
+					<td th:text="${s.id}"></td>
+					<td th:text="${s.cantidaActual}"></td>
+					<td th:text="${s.cantidadCritca}"></td>
+					<td th:text="${s.producto.nombre}"></td>				
 				</tr>
 			</tbody>
 		</table>
 	</div>
 	
-	<a href="/admin">Salir</a>
 </body>
 </html>
