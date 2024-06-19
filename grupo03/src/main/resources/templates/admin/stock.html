@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Lista Stock</title>
+
+</head>
+
+<body>
+		
+	<div class="container mt-4">
+		<table class="table">
+			<thead>
+				<tr>
+					<td>Id</td>
+					<td>Cantidad Actual</td>
+					<td>Cantidad Critica</td>
+					<td>Producto</td>
+			</tr>
+			</thead>
+			<tbody>
+				<tr th:each=":${}">
+					<td th:text="${}"></td>
+					<td th:text="${}"></td>
+					<td th:text="${}"></td>
+					<td th:text="${}"""></td>
+				
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<a href="/admin">Salir</a>
+</body>
+</html>

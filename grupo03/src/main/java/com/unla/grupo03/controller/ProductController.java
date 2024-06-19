@@ -2,6 +2,7 @@ package com.unla.grupo03.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,8 @@ import com.unla.grupo03.service.ProductService;
 @Controller
 @RequestMapping("user/productos")
 public class ProductController {
+	
+	@Autowired
 	private ProductService service;
 	
 	@ModelAttribute
