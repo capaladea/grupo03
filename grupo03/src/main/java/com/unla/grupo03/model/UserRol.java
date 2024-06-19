@@ -41,6 +41,14 @@ public class UserRol {
 	public String toString() {
 		return "UserRol [id=" + id + ", rol=" + rol + "]";
 	}
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
 	
 
 

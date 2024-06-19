@@ -40,6 +40,10 @@ public class User {
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="user", cascade = {CascadeType.ALL})
 	private Set<UserRol> userRoles = new HashSet<>();
 	
+	public User() {
+
+	}
+	
 	public User(String nombre, String apellido, String email, String password, Set<UserRol> userRoles) {
 
 		this.nombre = nombre;
