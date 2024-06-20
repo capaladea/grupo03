@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.unla.grupo03.model.Product;
 import com.unla.grupo03.service.ProductService;
@@ -33,13 +34,7 @@ public class ProductController {
 	}
 	
 
-	@GetMapping("/eliminar/{id}")
-	public String delete(Model model, @PathVariable ("id") int id) {
-		System.out.println("aca");
-		service.delete(id);
-		
-		return "redirect:/";
-	}
+
 	
 	
 }
