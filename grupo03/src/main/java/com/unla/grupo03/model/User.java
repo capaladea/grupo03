@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter @Setter @NoArgsConstructor
+@Getter @Setter
 public class User {
 
 	@Id
@@ -39,6 +39,10 @@ public class User {
 
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="user", cascade = {CascadeType.ALL})
 	private Set<UserRol> userRoles = new HashSet<>();
+	
+	public User() {
+
+	}
 	
 	public User(String nombre, String apellido, String email, String password, Set<UserRol> userRoles) {
 
